@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Details</h1>
+
+    <div class="section">
+        <h2>General Information</h2>
+        <p><strong>Order UID:</strong> {{.OrderUID}}</p>
+        <p><strong>Track Number:</strong> {{.TrackNumber}}</p>
+        <p><strong>Locale:</strong> {{.Locale}}</p>
+        <p><strong>InternalSig:</strong> {{.InternalSig}}</p>
+        <p><strong>CustomerID:</strong> {{.CustomerID}}</p>
+        <p><strong>DeliveryService:</strong> {{.DeliveryService}}</p>
+        <p><strong>SMID:</strong> {{.SMID}}</p>
+        <p><strong>DateCreated:</strong> {{.DateCreated}}</p>
+        <p><strong>OofShard:</strong> {{.OofShard}}</p>
+    </div>
+
+    <div class="section">
+        <h2>Delivery Information</h2>
+        <p><strong>Name:</strong> {{.Delivery.Name}}</p>
+        <p><strong>Phone:</strong> {{.Delivery.Phone}}</p>
+        <p><strong>Zip:</strong> {{.Delivery.Zip}}</p>
+        <p><strong>City:</strong> {{.Delivery.City}}</p>
+        <p><strong>Address:</strong> {{.Delivery.Address}}</p>
+        <p><strong>Region:</strong> {{.Delivery.Region}}</p>
+        <p><strong>Email:</strong> {{.Delivery.Email}}</p>
+    </div>
+
+    <div class="section">
+        <h2>Payment Information</h2>
+        <p><strong>Transaction:</strong> {{.Payment.Transaction}}</p>
+        <p><strong>Request ID:</strong> {{.Payment.RequestID}}</p>
+        <p><strong>Currency:</strong> {{.Payment.Currency}}</p>
+        <p><strong>Provider:</strong> {{.Payment.Provider}}</p>
+        <p><strong>Amount:</strong> {{.Payment.Amount}}</p>
+        <p><strong>PaymentDt:</strong> {{.Payment.PaymentDt}}</p>
+        <p><strong>Bank:</strong> {{.Payment.Bank}}</p>
+        <p><strong>DeliveryCost:</strong> {{.Payment.DeliveryCost}}</p>
+        <p><strong>GoodsTotal:</strong> {{.Payment.GoodsTotal}}</p>
+        <p><strong>CustomFee:</strong> {{.Payment.CustomFee}}</p>
+    </div>
+
+    <div class="section">
+        <h2>Items</h2>
+        {{range .Items}}
+            <div class="item">
+                <p><strong>Item Name:</strong> {{.Name}}</p>
+                <p><strong>ChrtID:</strong> {{.ChrtID}}</p>
+                <p><strong>TrackNumber:</strong> {{.TrackNumber}}</p>
+                <p><strong>RID:</strong> {{.RID}}</p>
+                <p><strong>Name:</strong> {{.Name}}</p>
+                <p><strong>Sale:</strong> {{.Sale}}</p>
+                <p><strong>Size:</strong> {{.Size}}</p>
+                <p><strong>TotalPrice:</strong> {{.TotalPrice}}</p>
+                <p><strong>NMID:</strong> {{.NMID}}</p>
+                <p><strong>Brand:</strong> {{.Brand}}</p>
+                <p><strong>Status:</strong> {{.Status}}</p>
+            </div>
+        {{end}}
+    </div>
+</body>
+</html>
